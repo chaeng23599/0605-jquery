@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="./style.css">
     <script src="../script/code.jquery.com_jquery-1.12.4.js"></script>
 </head>
+
 <body>
     <div class="container">
         <h1>auto slide</h1>
@@ -26,7 +27,7 @@
     <script>
 
         function slideStart(){
-            setInterval(function(){
+            timer = setInterval(function(){
                 $('.slide').animate({left:-800}, function(){
                     $('.slide li:first').appendTo('.slide')
                     $('.slide').css('left',0)

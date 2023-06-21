@@ -11,53 +11,45 @@
 </head>
 <body>
     <div class="container">
-        <header>
-            <nav>
-                <div class="logo">가나다</div>
-                <ul class="gnb">
-                    <li>
-                        <a href="#">소개</a>
-                        <ul>
-                            <li><a href="#">인사말</a></li>
-                            <li><a href="#">연혁</a></li>
-                            <li><a href="#">수상내역</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#">홍보</a>
-                        <ul>
-                            <li><a href="#">보도자료</a></li>
-                            <li><a href="#">TV 광고</a></li>
-                            <li><a href="#">미디어 행사</a></li>
-                        </ul>
-                    </li>
-                </ul>
-                <div class="bars">
-                    <i class="xi-bars"></i>
-                </div>
-            </nav>
-        </header>
-
+        <h1>filter</h1>
         <div class="main">
-            <div class="slide"></div>
-            <section>
-                <h1>Lorem ipsum dolor sit amet.</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem nam nostrum rerum impedit mollitia, perspiciatis,
-                     consequuntur provident error nisi quisquam quos? Aliquam consequuntur, eum aspernatur eos aliquid expedita culpa 
-                     eaque repudiandae quisquam illo, rerum quo perspiciatis suscipit excepturi eveniet nemo. Quisquam eum est provident 
-                     perferendis quidem sint cumque nesciunt. Quae numquam, ea nesciunt architecto quibusdam voluptatem velit ducimus veritatis 
-                     corporis impedit accusantium molestiae provident officia eaque, error excepturi modi, aliquid facere voluptas. Maiores unde, 
-                     modi magnam dolorem tenetur minima recusandae rem minus possimus atque. Illo ad iste harum voluptas, odio sed omnis libero 
-                     inventore consequuntur id, sit eum repellat blanditiis?</p>
-            </section>
+            <div class="btns">
+                <button data-id="all" class="active">all</button>
+                <button data-id="web">web</button>
+                <button data-id="ui">ui</button>
+                <button data-id="js">js</button>
+            </div>
+
+            <ul class="list">
+                <li data-item="web">1 <span>web</span></li>
+                <li data-item="ui">2 <span>ui</span></li>
+                <li data-item="web">3 <span>web</span></li>
+                <li data-item="web">4 <span>web</span></li>
+                <li data-item="js">5 <span>js</span></li>
+                <li data-item="ui">6 <span>ui</span></li>
+                <li data-item="js">7 <span>js</span></li>
+                <li data-item="web">8<span>web</span></li>
+                <li data-item="js">9 <span>js</span></li>
+            </ul>
         </div>
-        
     </div>
 
 
     <script>
+     $('.btns button').on('click', function (e) {
+            $('.btns button').removeClass('active')
+            $(this).addClass('active')
 
+            var category = e.currentTarget.dataset.id
 
+            if (category === 'all') {
+                $('.list li').show()
+            } else {
+                // $('.list li').hide().filter('[data-item =' + category + ']').show()
+                $('.list li').hide().filter(`[data-item = ${category}]`).show()
+            }
+
+        })
 
     </script>
 </body>
